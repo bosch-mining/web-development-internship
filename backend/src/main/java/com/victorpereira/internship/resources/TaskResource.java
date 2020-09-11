@@ -1,0 +1,27 @@
+package com.victorpereira.internship.resources;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.victorpereira.internship.models.Task;
+import com.victorpereira.internship.repositories.TaskRepository;
+
+@RestController
+@RequestMapping(value = "/tasks")
+public class TaskResource {
+	
+	@Autowired
+	private TaskRepository repo;
+	
+	@GetMapping
+	public List<Task> listTasks() {
+		return repo.findAll();
+	}
+	
+	
+
+}
