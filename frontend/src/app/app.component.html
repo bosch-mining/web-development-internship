@@ -2,17 +2,14 @@
 
 <div class="main">
   <h1>My To-Do List</h1>
-  <form class="" action="index.html" method="post">
-    <input type="text" placeholder="new task" name="task">
-    <button type="submit"><strong>ADD</strong></button>
+  <form [formGroup]="form">
+    <input type="text" placeholder="new task" name="task" formControlName="description">
+    <button type="submit" (click)="createTask()"><strong>ADD</strong></button>
   </form>
   <div class="tasksBoard">
-    <ul>
-      <li><span class="delete">×</span><input type="checkbox"><label>Vanilla JavaScript</label></li>
-      <li><span class="delete">×</span><input type="checkbox"><label>Angular</label></li>
-      <li><span class="delete">×</span><input type="checkbox"><label>React</label></li>
-      <li><span class="delete">×</span><input type="checkbox"><label>Vue</label></li>
-    </ul>
+    <ng-container *ngFor="let item of tasks">
+      <li><span class="delete">×</span><input type="checkbox"><label>{{item.description}}</label></li>
+    </ng-container>
     <a id="clear">Clear</a>
   </div>
 </div>
