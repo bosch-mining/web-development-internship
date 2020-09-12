@@ -16,6 +16,12 @@ export class AppComponent {
 
   public form: FormGroup;
 
+  public editingTask: Task;
+
+  public editingForm: FormGroup;
+
+  public isEditing: boolean;
+
   constructor(
     private formBuilder: FormBuilder,
     public taskService: TaskService
@@ -23,10 +29,18 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.getTasks();
+
     this.form = this.formBuilder.group({
       description: ['', [Validators.required]],
       state: [0]
     });
+
+    this.editingForm = this.formBuilder.group({
+      description: ['', [Validators.required]],
+      state: [0]
+    })
+
+    this.isEditing = false;
   }
 
   getTasks() {
@@ -36,10 +50,11 @@ export class AppComponent {
   }
 
   createTask() {
-    this.taskService.createTask(this.form.value).subscribe(result => {
-    })
-    this.form.reset();
-    window.location.reload();
+    if (!this.verifyBlankInput(this.form.controls['description'].value)) {
+      this.taskService.createTask(this.form.value).subscribe(result => {
+      })
+      window.location.reload();
+    }
   }
 
   deleteTask(id: number) {
@@ -48,25 +63,43 @@ export class AppComponent {
     window.location.reload();
   }
 
-  updateTask(task: Task) {
-    this.taskService.updateTask(task).subscribe(result => {
+  updateDescription(task: Task) {
+    if (!this.verifyBlankInput(this.editingForm.controls['description'].value)) {
+      this.taskService.updateDescription(task).subscribe(result => {
+      });
+      this.isEditing = false;
+    } 
+  }
+
+  updateState(task: Task) {
+    this.taskService.updateState(task).subscribe(result => {
     });
   }
 
   deleteAll(tasks: Task[]) {
-    console.log(tasks);
-    
     tasks.map((task) => {
       this.taskService.deleteTask(task.id).subscribe(result => {
       });
     })
     window.location.reload();
   }
-  
+
+  editTask(task: Task) {
+    this.editingTask = task;
+    this.isEditing = true;
+  }
+
   verifyState(state: string) {
     if (state == "OPEN") {
       return false;
     }
     return true;
+  }
+
+  verifyBlankInput(input: string) {
+    if (input.length == 0) {
+      return true;
+    }
+    return false;
   }
 }

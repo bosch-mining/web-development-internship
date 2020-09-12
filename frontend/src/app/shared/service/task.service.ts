@@ -32,7 +32,11 @@ export class TaskService {
     return this.httpClient.delete<void>(this.apiUrl + '/' + id);
   }
 
-  public updateTask(task: Task): Observable<void> {
+  public updateDescription(task: Task): Observable<void> {
+    return this.httpClient.put<void>(this.apiUrl + '/' + task.id, task, this.httpOptions);
+  }
+
+  public updateState(task: Task): Observable<void> {
     this.changeState(task);
     return this.httpClient.put<void>(this.apiUrl + '/' + task.id, task, this.httpOptions);
   }

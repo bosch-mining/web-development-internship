@@ -81,6 +81,43 @@ a {
     cursor: pointer;
 }
 
+#clear {
+    font-size: 15px;
+    color: white;
+    background-color: red;
+    padding: 4px;
+    margin-top: 4px;
+    border-radius: 4px;
+}
+
+.edit {
+    float: right;
+    font-size: 15px;
+    color: white;
+    background-color: #005691;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.editContainer {
+    display: flex;
+    flex-direction: row;
+    padding-top: 30px;
+}
+
+#editInput {
+    border: 1px solid lightgrey;
+    margin-top: 10px;
+}
+
+#editButton {
+    font-size: 15px;
+    color: white;
+    background-color: #3df556;
+    margin-top: 10px;
+    height: 34px;
+}
+
 @media (max-width: 500px) {
     .main {
         margin: auto;
