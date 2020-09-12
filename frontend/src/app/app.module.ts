@@ -5,10 +5,12 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TasklistComponent } from './components/tasklist/tasklist.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TasklistComponent
   ],
   imports: [
     HttpClientModule,
