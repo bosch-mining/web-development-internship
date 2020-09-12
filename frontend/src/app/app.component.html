@@ -8,9 +8,13 @@
   </form>
   <div class="tasksBoard">
     <ng-container *ngFor="let item of tasks">
-      <li><span class="delete">×</span><input type="checkbox"><label>{{item.description}}</label></li>
+      <li>
+        <span class="delete" (click)="deleteTask(item.id)">×</span>
+        <input type="checkbox" [ngModel]="verifyState(item.state)" (change)="updateTask(item)">
+        <label [ngClass]="{ 'complete': verifyState(item.state) }">{{item.description}}</label>
+      </li>
     </ng-container>
-    <a id="clear">Clear</a>
+    <a id="clear" (click)="deleteAll(tasks)">Clear</a>
   </div>
 </div>
 <script type="text/javascript" src="app.js"></script>

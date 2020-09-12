@@ -27,4 +27,21 @@ export class TaskService {
   public createTask(task: any): Observable<Task> {
     return this.httpClient.post<any>(this.apiUrl, task, this.httpOptions);
   }
+
+  public deleteTask(id: number): Observable<void> {
+    return this.httpClient.delete<void>(this.apiUrl + '/' + id);
+  }
+
+  public updateTask(task: Task): Observable<void> {
+    this.changeState(task);
+    return this.httpClient.put<void>(this.apiUrl + '/' + task.id, task, this.httpOptions);
+  }
+
+  public changeState(task: Task) {
+    if (task.state == "OPEN") {
+      task.state = "DONE";
+    } else {
+      task.state = "OPEN"
+    }
+  }
 }

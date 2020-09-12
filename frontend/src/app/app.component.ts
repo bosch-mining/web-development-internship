@@ -41,4 +41,32 @@ export class AppComponent {
     this.form.reset();
     window.location.reload();
   }
+
+  deleteTask(id: number) {
+    this.taskService.deleteTask(id).subscribe(result => {
+    });
+    window.location.reload();
+  }
+
+  updateTask(task: Task) {
+    this.taskService.updateTask(task).subscribe(result => {
+    });
+  }
+
+  deleteAll(tasks: Task[]) {
+    console.log(tasks);
+    
+    tasks.map((task) => {
+      this.taskService.deleteTask(task.id).subscribe(result => {
+      });
+    })
+    window.location.reload();
+  }
+  
+  verifyState(state: string) {
+    if (state == "OPEN") {
+      return false;
+    }
+    return true;
+  }
 }
