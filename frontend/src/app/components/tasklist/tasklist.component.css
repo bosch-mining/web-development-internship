@@ -44,17 +44,17 @@ button {
     width: 50px;
 }
 
+.complete {
+    text-decoration: line-through;
+}
+
 .tasksBoard {
     background-color: #fff;
     margin-top: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-right: 40px;
-    /*display: none;*/
-}
-
-ul {
-    list-style: none;
+    padding-left: 40px;
 }
 
 li {
@@ -63,6 +63,7 @@ li {
     padding-top: 15px;
     font-size: 1.3em;
     color: #2f4f4f;
+    list-style-type: none;
 }
 
 a {
@@ -78,6 +79,43 @@ a {
     padding: 0px 3px 0px 3px;
     color: #fff;
     cursor: pointer;
+}
+
+#clear {
+    font-size: 15px;
+    color: white;
+    background-color: red;
+    padding: 4px;
+    margin-top: 4px;
+    border-radius: 4px;
+}
+
+.edit {
+    float: right;
+    font-size: 15px;
+    color: white;
+    background-color: #005691;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.editContainer {
+    display: flex;
+    flex-direction: row;
+    padding-top: 30px;
+}
+
+#editInput {
+    border: 1px solid lightgrey;
+    margin-top: 10px;
+}
+
+#editButton {
+    font-size: 15px;
+    color: white;
+    background-color: #3df556;
+    margin-top: 10px;
+    height: 34px;
 }
 
 @media (max-width: 500px) {
