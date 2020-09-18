@@ -1,0 +1,11 @@
+<div mat-dialog-content>
+  <p>Type your task</p>
+  <mat-form-field class="full-width">
+    <mat-label>Tasks</mat-label>
+    <textarea style="height: 80px;" matInput required [(ngModel)]="taskData.text"></textarea>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button color="warn" mat-button (click)="onNoClick()">Close</button>
+  <button color="primary" mat-button mat-dialog-close (click)="saveTask(taskData)" [disabled]="taskData.text == '' || taskData.text == null || taskData.text == undefined">Save</button>
+</div>
