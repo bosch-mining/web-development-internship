@@ -1,3 +1,3 @@
-Para instanciar o banco de dados é necessario o uso do Docker.
-Existe um arquivo chamado docker-compose.yml que é necessario para iniciar o banco, basta utilizar o comando "docker-compose up" na raiz do projeto para isso.
-Foi utilizado o banco de dados PostgreSQL.
+To instantiate the database it is necessary to use Docker.
+There is a file called docker-compose.yml that is necessary to start the bank, just use the command "docker-compose up" at the root of the project for this.
+The PostgreSQL database was used.
