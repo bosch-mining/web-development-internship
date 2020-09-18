@@ -1,3 +1,8 @@
+#Database
 To instantiate the database it is necessary to use Docker.
 There is a file called docker-compose.yml that is necessary to start the bank, just use the command "docker-compose up" at the root of the project for this.
 The PostgreSQL database was used.
+
+#Navigate
+Navigate to `http://localhost:8000/`
+To access the swagger browse with http://localhost:8000/swagger-ui.html#/
